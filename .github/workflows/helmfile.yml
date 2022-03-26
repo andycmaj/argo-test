@@ -51,8 +51,8 @@ jobs:
         id: sync-helmfile
         if: ${{ matrix.cluster_type == needs.configure-cluster-type.outputs.cluster_type }}
         with:
-          aws-access-key-id: ${{ inputs.deployerAWSAccessKeyID }}
-          aws-secret-access-key: ${{ inputs.deployerAWSSecretAccessKey }}
+          aws-access-key-id: ${{ secrets.KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET }}
           aws-region: us-east-2
           cluster-name: ${{ matrix.cluster_name }}
           helmfile-environment: ${{ matrix.cluster_name }}
