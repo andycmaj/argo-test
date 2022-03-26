@@ -1,0 +1,32 @@
+name: "EKS Helmfile Deployment"
+description: "Deploy to EKS using Helmfile."
+branding:
+  icon: anchor
+  color: yellow
+inputs:
+  aws-secret-access-key:
+    description: "AWS credentials used to login to eks."
+    required: true
+  aws-access-key-id:
+    description: "AWS credentials used to login to eks."
+    required: true
+  aws-region:
+    description: "AWS region to use (default: us-west-2)"
+    required: true
+    default: us-east-1
+  cluster-name:
+    description: "EKS cluster name."
+    required: true
+  helmfile-environment:
+    description: "Helmfile environment name"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    AWS_REGION: ${{ inputs.aws-region }}
+    AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+    AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
+    CLUSTER_NAME: ${{ inputs.cluster-name }}
+    DEPLOY_ENVIRONMENT: ${{ inputs.helmfile-environment }}
