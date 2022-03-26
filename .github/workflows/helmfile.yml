@@ -8,6 +8,7 @@ on:
 
 jobs:
   configure-cluster-type:
+    runs-on: ubuntu-latest
     outputs:
       cluster_type: ${{ steps.set_cluster_type.outputs.cluster_type }}
     steps:
@@ -37,6 +38,7 @@ jobs:
         run: |
           echo "##[set-output name=cluster_type;]$(echo $CLUSTER_TYPE)"
   upgrade_runtime:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
