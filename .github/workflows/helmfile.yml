@@ -35,6 +35,7 @@ jobs:
         # ENV_main -> development
         # ENV_production -> production
         # ENV_* -> development
+        ###
         run: |
           echo "##[set-output name=cluster_type;]$(echo $CLUSTER_TYPE)"
   upgrade_runtime:

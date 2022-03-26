@@ -9,7 +9,7 @@ echo =====
 echo github dir $(ls -la /github)
 echo =====
 
-echo github dir $(ls -la /github)
+echo github dir $(ls -la /github/workspace)
 echo =====
 
 # Login to Kubernetes Cluster.
